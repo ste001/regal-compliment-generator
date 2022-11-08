@@ -6,8 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>William Regal compliment generator</title>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="main.js"></script>
 </head>
 <body>
-  <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
+  <div x-data="generate">
+    <button @click="generatePhrase">Generate</button>
+ 
+    <p x-text="phrase"></p>
+</div>
 </body>
+<script>
+
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('generate', () => ({
+      phrase: '',
+
+      generatePhrase() {
+        getWords().then(
+          (response) => {
+            const adjectives = response.adjectives;
+            const nouns = response.nouns;
+            const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+            const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+            this.phrase = `You ${randomAdjective} little ${randomNoun}, you!`;
+          }
+        )
+      }
+    }))
+  })
+</script>
 </html>
