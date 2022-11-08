@@ -47,3 +47,10 @@ body {
   -webkit-transform: translateY(2px);
   transform: translateY(2px);
 }
+
+*:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
