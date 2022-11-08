@@ -5,14 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>William Regal compliment generator</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  </style>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="main.js"></script>
 </head>
 <body>
-  <div x-data="generate">
-    <button @click="generatePhrase">Generate</button>
+  <div x-data="generate" class="container">
+    <h1 class="header">William Regal compliment generator</h1>
+    <button class="custom-btn" @click="generatePhrase">Generate</button>
  
-    <p x-text="phrase"></p>
+    <p class="phrase" x-text="phrase"></p>
 </div>
 </body>
 <script>
